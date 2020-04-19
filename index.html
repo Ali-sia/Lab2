@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Лабораторна робота 1</title>
+<style>
+		*{
+		background-color: #ffff99;
+		}
+        .container{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)translateY(-50%);
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .style{
+            margin-bottom: 10px;
+            background-color: #c6ffb3;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            width: 70%;
+            padding: 5px;
+			font-size: 20px;			
+        }
+		input[type="text"]::placeholder {
+			text-align: center;
+		}
+		
+    </style>
+</head>
+<body>
+	
+    <div class="container">
+        <input type="text" id="EntryField" class="style" placeholder="Введіть масив цифр без пробілів через знак ','">
+        <button class="style" id="btn">Вивести максимальний елемент масиву</button>
+        <input type="text" readonly id="massiv" class="style" placeholder="Введений масив">
+        <input type="text" readonly id="maxElem" class="style" placeholder="Максимальний елемент масиву">
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        const entryField = document.getElementById("EntryField");
+        const arr = document.getElementById("massiv");
+        const maxEl = document.getElementById("maxElem");
+        btn.addEventListener("click",function () {
+            const newArr = entryField.value.split(",");
+            arr.value = newArr.join(",");
+            let max = 0;
+            newArr.forEach((item) =>{if (max < item){max = item;}});maxEl.value = max;})
+    </script>
+</body>
+</html>
